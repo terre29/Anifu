@@ -1,0 +1,6 @@
+framework module Pods_Anifu {
+  umbrella header "Pods-Anifu-umbrella.h"
+
+  export *
+  module * { export * }
+}
