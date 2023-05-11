@@ -62,7 +62,6 @@ class BrowseAnimeViewController: UIViewController {
         BrowseAnimeSection.allCases.forEach({
             snapshot.appendItems([AnimeCardModel(animeName: "", animeImageURL: "", malId: 0, isLoading: true), AnimeCardModel(animeName: "", animeImageURL: "", malId: 0, isLoading: true), AnimeCardModel(animeName: "", animeImageURL: "", malId: 0, isLoading: true), AnimeCardModel(animeName: "", animeImageURL: "", malId: 0, isLoading: true), AnimeCardModel(animeName: "", animeImageURL: "", malId: 0, isLoading: true)], toSection: $0)
         })
-     
         dependency.dataSource.apply(snapshot)
     }
     
@@ -158,34 +157,5 @@ class BrowseAnimeViewController: UIViewController {
             return self?.collectionView.dequeueConfiguredReusableSupplementary(
                    using: headerRegistration, for: indexPath)
         }
-    }
-}
-
-extension NSDiffableDataSourceSnapshot {
-    func hideSkeleton<S: Hashable & Sendable>(section: S, inCollectionView: UICollectionView) {
-        let indexSection = self.indexOfSection(section as! SectionIdentifierType)
-        let section = self.sectionIdentifiers[indexSection!]
-        let items = self.itemIdentifiers(inSection: section)
-        
-        items.enumerated().forEach({ index, _ in
-            let cell = inCollectionView.cellForItem(at: IndexPath(item: index, section: indexSection!))
-            DispatchQueue.main.async {
-                cell?.hideSkeleton()
-            }
-        })
-    }
-    
-    func showSkeleton<S: Hashable & Sendable>(section: S, inCollectionView: UICollectionView) {
-        let indexSection = self.indexOfSection(section as! SectionIdentifierType)
-        let section = self.sectionIdentifiers[indexSection!]
-        let items = self.itemIdentifiers(inSection: section)
-        
-        items.enumerated().forEach({ index, _ in
-            let cell = inCollectionView.cellForItem(at: IndexPath(item: index, section: indexSection!))
-            cell?.isSkeletonable = true
-            DispatchQueue.main.async {
-                cell?.showAnimatedSkeleton()
-            }
-        })
     }
 }

@@ -31,7 +31,6 @@ struct AnimeCardModel: Hashable {
     let animeImageURL: String
     let malId: Int
     let isLoading: Bool
-    let getImage: () -> Void
 }
 
 class BrowseViewModel {
