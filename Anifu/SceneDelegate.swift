@@ -29,9 +29,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.overrideUserInterfaceStyle = .dark
         window.rootViewController = tabBar
         window.makeKeyAndVisible()
-      
-       
-
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

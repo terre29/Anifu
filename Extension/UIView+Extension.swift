@@ -23,7 +23,6 @@ extension UIView {
         self.bottomAnchor.constraint(equalTo: to.bottomAnchor, constant: -8).isActive = true
         self.trailingAnchor.constraint(equalTo: to.trailingAnchor, constant: -8).isActive = true
         self.leadingAnchor.constraint(equalTo: to.leadingAnchor, constant: 8).isActive = true
-        
     }
     
     func pinToAllSideWithSafeArea(to: UIView) {

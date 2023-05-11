@@ -11,6 +11,13 @@ import SwiftUI
 import SkeletonView
 import RxSwift
 
+protocol BrowseAnimeViewControllerBusinessLogic {
+    func getForYouAnime()
+    func getTrendingAnime()
+    func getUpcomingSeason()
+    func getThisSeason()
+}
+
 class BrowseAnimeViewController: UIViewController {
     
     lazy var collectionView: UICollectionView = {
@@ -92,19 +99,19 @@ class BrowseAnimeViewController: UIViewController {
     }
 
     func getForYouAnime() {
-        dependency.getForYouAnime()
+        dependency.businessLogic.getForYouAnime()
     }
     
     func getTrendingAnime() {
-        dependency.getTopAnime()
+        dependency.businessLogic.getTrendingAnime()
     }
     
     func getThisSeason() {
-        dependency.getThisSeasonAnime()
+        dependency.businessLogic.getThisSeason()
     }
     
     func getUpcomingSeason() {
-        dependency.getUpcomingSeasonAnime()
+        dependency.businessLogic.getUpcomingSeason()
     }
     
     func setupPage() {

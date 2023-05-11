@@ -21,36 +21,9 @@ struct BrowseAnimeComposer {
                     return cell
                 }),
             browseViewModel: browseViewModel,
-            getTopAnime: {
-                let url = URL(string: URLConstant.shared.animeTopURL)!
-                    .appending("limit", value: "5")
-                    .appending("page", value: "0")
-                let resource = Resource<JikanResponse>(url: url)
-                browseViewModel.getTopAnimeList(resource: resource)
-            },
-            getThisSeasonAnime: {
-                let url = URL(string: URLConstant.shared.animeThisSeasonURL)!
-                    .appending("limit", value: "10")
-                    .appending("page", value: "0")
-                let resource = Resource<JikanResponse>(url: url)
-                browseViewModel.getThisAnimeList(resource: resource)
-            },
-            getUpcomingSeasonAnime: {
-                let url = URL(string: URLConstant.shared.animeUpcomingSeasonURL)!
-                    .appending("limit", value: "10")
-                    .appending("page", value: "0")
-                let resource = Resource<JikanResponse>(url: url)
-                browseViewModel.getUpcomingAnimeList(resource: resource)
-            },
-            getForYouAnime: {
-                let url = URL(string: URLConstant.shared.baseAnimeURL)!
-                    .appending("genres", value: "14")
-                    .appending("limit", value: "10")
-                    .appending("page", value: "0")
-                let resource = Resource<JikanResponse>(url: url)
-                browseViewModel.getForYouAnimeList(resource: resource)
-            })
-        let vc = BrowseAnimeViewController(dependency:browseAnimeViewControllerDependency)
+            businessLogic: browseViewModel
+        )
+        let vc = BrowseAnimeViewController(dependency: browseAnimeViewControllerDependency)
         vc.collectionView = collectionView
         return vc
     }

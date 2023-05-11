@@ -32,10 +32,8 @@ class AnimeCollectionViewCell: UICollectionViewCell {
     }
     
     var animeImageCapturedData = BehaviorRelay(value: UIImage())
-    
     let animeImageCache = NSCache<NSNumber, UIImage>()
 
-    
     lazy var title: UILabel = {
         let label = UILabel()
         label.numberOfLines = 2
@@ -44,8 +42,8 @@ class AnimeCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    lazy var baseView: ShimmerView = {
-        let view = ShimmerView()
+    lazy var baseView: UIView = {
+        let view = UIView()
         view.layer.cornerRadius = 12
         view.clipsToBounds = true
         view.layer.borderWidth = 1
@@ -124,7 +122,6 @@ class AnimeCollectionViewCell: UICollectionViewCell {
         title.pinToAlllSideWith8Constant(to: titleView)
         titleView.heightAnchor.constraint(equalToConstant: 60).isActive = true
         titleView.translatesAutoresizingMaskIntoConstraints = false
-        
     }
     
     func populateData() {

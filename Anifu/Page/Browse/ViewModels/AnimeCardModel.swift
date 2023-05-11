@@ -33,7 +33,8 @@ struct AnimeCardModel: Hashable {
     let isLoading: Bool
 }
 
-class BrowseViewModel {
+class BrowseViewModel: BrowseAnimeViewControllerBusinessLogic {
+    
     let disposeBag = DisposeBag()
     
     var animeListViewModel = PublishSubject<TrendingAnimeList>()
@@ -77,8 +78,38 @@ class BrowseViewModel {
         })
     }
     
+    func getForYouAnime() {
+        let url = URL(string: URLConstant.shared.baseAnimeURL)!
+            .appending("genres", value: "14")
+            .appending("limit", value: "10")
+            .appending("page", value: "0")
+        let resource = Resource<JikanResponse>(url: url)
+        getForYouAnimeList(resource: resource)
+    }
     
+    func getTrendingAnime() {
+        let url = URL(string: URLConstant.shared.animeTopURL)!
+            .appending("limit", value: "10")
+            .appending("page", value: "0")
+        let resource = Resource<JikanResponse>(url: url)
+        getTopAnimeList(resource: resource)
+    }
     
+    func getUpcomingSeason() {
+        let url = URL(string: URLConstant.shared.animeUpcomingSeasonURL)!
+            .appending("limit", value: "10")
+            .appending("page", value: "0")
+        let resource = Resource<JikanResponse>(url: url)
+        getUpcomingAnimeList(resource: resource)
+    }
+    
+    func getThisSeason() {
+        let url = URL(string: URLConstant.shared.animeThisSeasonURL)!
+            .appending("limit", value: "10")
+            .appending("page", value: "0")
+        let resource = Resource<JikanResponse>(url: url)
+        getThisAnimeList(resource: resource)
+    }
     
 }
 

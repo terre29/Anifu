@@ -112,7 +112,6 @@ extension BrowseAnimeViewController {
 
 extension BrowseAnimeViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
         animeSearchBar.endEditing(true)
     }
 }
@@ -150,7 +149,6 @@ extension BrowseAnimeViewController: UICollectionViewDelegate {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
         let contentOffsetX = scrollView.contentOffset.x
         if contentOffsetX >= (scrollView.contentSize.width - scrollView.bounds.width) - 20 /* Needed offset */ {
             // load more data
@@ -182,7 +180,6 @@ extension BrowseAnimeViewController {
         }
     }
 }
-
 
 extension UICollectionViewDiffableDataSource {
     func replaceItems(_ items : [ItemIdentifierType], in section: SectionIdentifierType) {

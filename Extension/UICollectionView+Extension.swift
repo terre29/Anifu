@@ -21,7 +21,6 @@ class CollectionViewSkeletonDiffableDataSource<Section: Hashable, Item: Hashable
     }
 }
 
-
 extension UICollectionView.CellRegistration {
     var cellProvider: (UICollectionView, IndexPath, Item) -> Cell {
         return { collectionView, indexPath, anime in

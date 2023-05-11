@@ -19,10 +19,7 @@ enum BrowseAnimeSection: Int, CaseIterable {
 struct BrowseAnimeViewControllerDependency {
     let dataSource: CollectionViewSkeletonDiffableDataSource<BrowseAnimeSection, AnimeCardModel>
     let browseViewModel: BrowseViewModel
-    let getTopAnime: () -> Void
-    let getThisSeasonAnime: () -> Void
-    let getUpcomingSeasonAnime: () -> Void
-    let getForYouAnime: () -> Void
+    var businessLogic: BrowseAnimeViewControllerBusinessLogic
 }
 
 struct JikanResponse: Decodable {
