@@ -36,7 +36,13 @@ class AnifuTabBarController: UITabBarController, UITabBarControllerDelegate {
     func setupTabBarItem() {
         var viewControllers = [UIViewController]()
         viewControllerList.forEach({ viewController in
-            let tabBarItem = UITabBarItem(title: viewController.title ?? "ITEM", image: nil, selectedImage: nil)
+            var image: UIImage? = UIImage()
+            if viewController.title == "Browse" {
+                image = UIImage(systemName: "magnifyingglass")
+            } else if viewController.title == "Profile" {
+                image = UIImage(systemName: "person.fill")
+            }
+            let tabBarItem = UITabBarItem(title: viewController.title ?? "ITEM", image: image, selectedImage: nil)
             viewController.tabBarItem = tabBarItem
             viewControllers.append(viewController)
         })

@@ -37,4 +37,3 @@ struct ProfilePageHeaderCellViewModel: Hashable {
         self.profileImage = profileImage
     }
 }
-

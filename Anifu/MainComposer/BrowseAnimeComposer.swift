@@ -24,6 +24,7 @@ struct BrowseAnimeComposer {
             businessLogic: browseViewModel
         )
         let vc = BrowseAnimeViewController(dependency: browseAnimeViewControllerDependency)
+        vc.title = "Browse"
         vc.collectionView = collectionView
         return vc
     }

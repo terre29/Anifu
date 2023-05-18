@@ -19,11 +19,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
-        let initialViewController = createBrowseAnimeViewController()
-        let navigation = UINavigationController(rootViewController: initialViewController)
-        let topAnime = ProfilePageViewController()
-        initialViewController.title = "Browse"
-        let tabBar = AnifuTabBarController(viewControllerList: [navigation, topAnime])
+        let browseViewController = createBrowseAnimeViewController()
+        let navigation = UINavigationController(rootViewController: browseViewController)
+        let profileViewController = ProfilePageComposer.createPoriflePageViewController()
+        let tabBar = AnifuTabBarController(viewControllerList: [navigation, profileViewController])
     
         self.window = window
         window.overrideUserInterfaceStyle = .dark

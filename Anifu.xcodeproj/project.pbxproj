@@ -39,6 +39,7 @@
 		C3E09ADF2A0DE1FB00A3D5AA /* ProfilePageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E09ADE2A0DE1FB00A3D5AA /* ProfilePageViewModel.swift */; };
 		C3E36B2F2A0A31920081188E /* AnifuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E36B2E2A0A31920081188E /* AnifuTests.swift */; };
 		C3E36B372A0A31DC0081188E /* BrowsePageViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E36B362A0A31DC0081188E /* BrowsePageViewModelTest.swift */; };
+		C3F5C6662A162C25008C749F /* ProfilePageComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F5C6652A162C25008C749F /* ProfilePageComposer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		C3E36B2C2A0A31920081188E /* AnifuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnifuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3E36B2E2A0A31920081188E /* AnifuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnifuTests.swift; sourceTree = "<group>"; };
 		C3E36B362A0A31DC0081188E /* BrowsePageViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowsePageViewModelTest.swift; sourceTree = "<group>"; };
+		C3F5C6652A162C25008C749F /* ProfilePageComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageComposer.swift; sourceTree = "<group>"; };
 		CA11ED92438A7BB0802E3D6E /* Pods-Anifu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Anifu.release.xcconfig"; path = "Target Support Files/Pods-Anifu/Pods-Anifu.release.xcconfig"; sourceTree = "<group>"; };
 		E53ACF28974F9532680C2CF9 /* Pods_Anifu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Anifu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -123,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				5D7D78C4297A39180053B382 /* BrowseAnimeComposer.swift */,
+				C3F5C6652A162C25008C749F /* ProfilePageComposer.swift */,
 			);
 			path = MainComposer;
 			sourceTree = "<group>";
@@ -511,6 +514,7 @@
 				5D32F7D4294B21BA002CE156 /* AnimeCardModel.swift in Sources */,
 				5D9BC461296C17A5009110C0 /* URLConstant.swift in Sources */,
 				5D4C3F96295D8DE20009FB3B /* AnimeModel.swift in Sources */,
+				C3F5C6662A162C25008C749F /* ProfilePageComposer.swift in Sources */,
 				5D39781F2963F95300E4FEA5 /* AnimeListModel.swift in Sources */,
 				5D39781C2963F63200E4FEA5 /* AnimeListViewController.swift in Sources */,
 				5D9D00F9295D910200A8EF9B /* URLRequest+Extension.swift in Sources */,
