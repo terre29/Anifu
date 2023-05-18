@@ -97,8 +97,6 @@ extension BrowseAnimeViewController {
         section.orthogonalScrollingBehavior = .continuous
         section.boundarySupplementaryItems = [makeHeaderSection()]
         section.visibleItemsInvalidationHandler = { [weak self] (visibleItem, offset, env) in
-            print("offSet \(offset)")
-            print("env \(env)")
         }
         return section
         
@@ -145,14 +143,6 @@ extension BrowseAnimeViewController: UICollectionViewDelegate {
             cell.animeImageCapturedData.accept(image)
         } else {
             cell.getImage()
-        }
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let contentOffsetX = scrollView.contentOffset.x
-        if contentOffsetX >= (scrollView.contentSize.width - scrollView.bounds.width) - 20 /* Needed offset */ {
-            // load more data
-            // than set self.isLoading to false when new data is loaded
         }
     }
 }

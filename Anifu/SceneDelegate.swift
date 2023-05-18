@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         let initialViewController = createBrowseAnimeViewController()
         let navigation = UINavigationController(rootViewController: initialViewController)
-        let topAnime = AnimeListViewController()
+        let topAnime = ProfilePageViewController()
         initialViewController.title = "Browse"
         let tabBar = AnifuTabBarController(viewControllerList: [navigation, topAnime])
     

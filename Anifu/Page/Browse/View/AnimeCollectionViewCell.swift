@@ -119,7 +119,7 @@ class AnimeCollectionViewCell: UICollectionViewCell {
         titleView.addSubview(title)
         baseView.pinToAllSides(to: contentView)
         imageAndTitleStackView.pinToAllSides(to: baseView)
-        title.pinToAlllSideWith8Constant(to: titleView)
+        title.pinToAllSideWith8Constant(to: titleView)
         titleView.heightAnchor.constraint(equalToConstant: 60).isActive = true
         titleView.translatesAutoresizingMaskIntoConstraints = false
     }

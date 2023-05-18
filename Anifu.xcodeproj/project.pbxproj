@@ -33,6 +33,10 @@
 		5DA0FAE82962E8F800F3C916 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA0FAE72962E8F800F3C916 /* UIView+Extension.swift */; };
 		5DA0FAEB2962EF2F00F3C916 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA0FAEA2962EF2F00F3C916 /* APIHelper.swift */; };
 		5DC9164B298CB5C000391DAB /* ShimmeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC9164A298CB5BF00391DAB /* ShimmeringView.swift */; };
+		C33061F82A0FB6660090EA4C /* ProfilePageHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33061F72A0FB6660090EA4C /* ProfilePageHeaderCell.swift */; };
+		C35852D72A0D2AF300ADB46E /* ProfilePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35852D62A0D2AF300ADB46E /* ProfilePageViewController.swift */; };
+		C35852D92A0D337100ADB46E /* ProfilePageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35852D82A0D337100ADB46E /* ProfilePageCell.swift */; };
+		C3E09ADF2A0DE1FB00A3D5AA /* ProfilePageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E09ADE2A0DE1FB00A3D5AA /* ProfilePageViewModel.swift */; };
 		C3E36B2F2A0A31920081188E /* AnifuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E36B2E2A0A31920081188E /* AnifuTests.swift */; };
 		C3E36B372A0A31DC0081188E /* BrowsePageViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E36B362A0A31DC0081188E /* BrowsePageViewModelTest.swift */; };
 /* End PBXBuildFile section */
@@ -76,6 +80,10 @@
 		5DA0FAE72962E8F800F3C916 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		5DA0FAEA2962EF2F00F3C916 /* APIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
 		5DC9164A298CB5BF00391DAB /* ShimmeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmeringView.swift; sourceTree = "<group>"; };
+		C33061F72A0FB6660090EA4C /* ProfilePageHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageHeaderCell.swift; sourceTree = "<group>"; };
+		C35852D62A0D2AF300ADB46E /* ProfilePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageViewController.swift; sourceTree = "<group>"; };
+		C35852D82A0D337100ADB46E /* ProfilePageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageCell.swift; sourceTree = "<group>"; };
+		C3E09ADE2A0DE1FB00A3D5AA /* ProfilePageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageViewModel.swift; sourceTree = "<group>"; };
 		C3E36B2C2A0A31920081188E /* AnifuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnifuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3E36B2E2A0A31920081188E /* AnifuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnifuTests.swift; sourceTree = "<group>"; };
 		C3E36B362A0A31DC0081188E /* BrowsePageViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowsePageViewModelTest.swift; sourceTree = "<group>"; };
@@ -286,6 +294,8 @@
 		C33A24292A0C8ADE009AD856 /* ProfilePage */ = {
 			isa = PBXGroup;
 			children = (
+				C3E09ADD2A0DE17000A3D5AA /* Model */,
+				C3E09ADC2A0DE16200A3D5AA /* View */,
 			);
 			path = ProfilePage;
 			sourceTree = "<group>";
@@ -298,6 +308,24 @@
 				5D32F7CD294B1FA5002CE156 /* Browse */,
 			);
 			path = Page;
+			sourceTree = "<group>";
+		};
+		C3E09ADC2A0DE16200A3D5AA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C35852D62A0D2AF300ADB46E /* ProfilePageViewController.swift */,
+				C35852D82A0D337100ADB46E /* ProfilePageCell.swift */,
+				C33061F72A0FB6660090EA4C /* ProfilePageHeaderCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C3E09ADD2A0DE17000A3D5AA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C3E09ADE2A0DE1FB00A3D5AA /* ProfilePageViewModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		C3E36B2D2A0A31920081188E /* AnifuTests */ = {
@@ -468,12 +496,16 @@
 				5DA0FAE82962E8F800F3C916 /* UIView+Extension.swift in Sources */,
 				5D32F7BB294B0CEF002CE156 /* ViewController.swift in Sources */,
 				5D32F7B7294B0CEF002CE156 /* AppDelegate.swift in Sources */,
+				C35852D92A0D337100ADB46E /* ProfilePageCell.swift in Sources */,
+				C35852D72A0D2AF300ADB46E /* ProfilePageViewController.swift in Sources */,
 				5D32F7CF294B1FC3002CE156 /* BrowseAnimeViewController.swift in Sources */,
 				5D32F7D1294B20D8002CE156 /* AnimeCollectionViewCell.swift in Sources */,
 				5D9BC45B296BB984009110C0 /* AnimeCustomSectionHeader.swift in Sources */,
+				C3E09ADF2A0DE1FB00A3D5AA /* ProfilePageViewModel.swift in Sources */,
 				5D02E76E29653E17008A1596 /* PublicRouter.swift in Sources */,
 				5D9BC465296D154D009110C0 /* AnifuTabBarController.swift in Sources */,
 				5DC9164B298CB5C000391DAB /* ShimmeringView.swift in Sources */,
+				C33061F82A0FB6660090EA4C /* ProfilePageHeaderCell.swift in Sources */,
 				5D7D78C5297A39180053B382 /* BrowseAnimeComposer.swift in Sources */,
 				5D32F7CC294B0F41002CE156 /* Preview.swift in Sources */,
 				5D32F7D4294B21BA002CE156 /* AnimeCardModel.swift in Sources */,

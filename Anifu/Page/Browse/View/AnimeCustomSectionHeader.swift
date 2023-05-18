@@ -20,7 +20,7 @@ class AnimeCustomSectionHeader: UICollectionReusableView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(sectionTitle)
-        sectionTitle.pinToAlllSideWith8Constant(to: self)
+        sectionTitle.pinToAllSideWith8Constant(to: self)
     }
     
     required init?(coder: NSCoder) {

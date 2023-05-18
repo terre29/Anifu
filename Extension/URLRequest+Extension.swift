@@ -26,7 +26,6 @@ extension URLRequest {
                 return URLSession.shared.rx.data(request: request)
             }.map { data -> T in
                 let jsonData = try JSONDecoder().decode(T.self, from: data)
-                print(jsonData)
                 return jsonData
             }
     }
