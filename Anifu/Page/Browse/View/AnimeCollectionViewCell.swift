@@ -135,5 +135,6 @@ class AnimeCollectionViewCell: UICollectionViewCell {
         }
         isLoading = model.isLoading
     }
+    
 }
 

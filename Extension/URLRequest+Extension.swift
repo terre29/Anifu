@@ -24,6 +24,13 @@ extension URLRequest {
             .flatMap { url -> Observable<Data> in
                 let request = URLRequest(url: url)
                 return URLSession.shared.rx.data(request: request)
+                    .delay(.seconds(1), scheduler: ConcurrentDispatchQueueScheduler(qos: .background))
+                    .observe(on: ConcurrentDispatchQueueScheduler(qos: .background))
+                    .retry(10)
+                    .catch({ error in
+                        print(error.localizedDescription)
+                        return Observable.error(error)
+                    })
             }.map { data -> T in
                 let jsonData = try JSONDecoder().decode(T.self, from: data)
                 return jsonData

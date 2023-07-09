@@ -139,11 +139,14 @@ extension BrowseAnimeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         guard let cell = cell as? AnimeCollectionViewCell else { return }
         if let image = cell.animeImageCache.object(forKey: NSNumber(value: cell.model.malId)) {
-            print("cachedImage for \(cell.model.malId)")
             cell.animeImageCapturedData.accept(image)
         } else {
             cell.getImage()
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        dependency.browseViewModel.routeToAnimeDetail()
     }
 }
 

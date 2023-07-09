@@ -34,6 +34,8 @@ class BrowseAnimeViewController: UIViewController {
     
     
     var dependency: BrowseAnimeViewControllerDependency
+    var isShowingError: Bool = false
+    var errorVC: UIViewController?
     let disposeBag = DisposeBag()
     
     init(dependency: BrowseAnimeViewControllerDependency) {
@@ -76,10 +78,18 @@ class BrowseAnimeViewController: UIViewController {
         dependency.browseViewModel.animeListViewModel
             .subscribe(onNext: { [weak self] model in
                 self?.topAnimeDidLoad(model: model)
+            },
+            onError: { [weak self] error in
+                self?.browseViewControllerErrorHandler(error: error)
             })
             .disposed(by: disposeBag)
 
         dependency.browseViewModel.forYouListModel
+            .catch({ [weak self] error in
+                self?.browseViewControllerErrorHandler(error: error)
+                return Observable.empty()
+            })
+
             .subscribe(onNext: { [weak self] model in
                 self?.forYouAnimeDidLoad(model: model)
             })
@@ -88,12 +98,18 @@ class BrowseAnimeViewController: UIViewController {
         dependency.browseViewModel.thisSeasonModel
             .subscribe(onNext: { [weak self] model in
                 self?.thisSeasonAnimeDidLoad(model: model)
+            },
+            onError: { [weak self] error in
+                self?.browseViewControllerErrorHandler(error: error)
             })
             .disposed(by: disposeBag)
 
         dependency.browseViewModel.upcomingSeasonModel
             .subscribe(onNext: { [weak self] model in
                 self?.upcomingSeasonAnimeDidLoad(model: model)
+            },
+            onError: { [weak self] error in
+                self?.browseViewControllerErrorHandler(error: error)
             })
             .disposed(by: disposeBag)
     }
@@ -164,5 +180,28 @@ class BrowseAnimeViewController: UIViewController {
             return self?.collectionView.dequeueConfiguredReusableSupplementary(
                    using: headerRegistration, for: indexPath)
         }
+    }
+    
+    func browseViewControllerErrorHandler(error: Error) {
+        guard !isShowingError else { return }
+        isShowingError = true
+        let errorVC = AnifuErrorViewController(reloadAction: { [weak self] in
+            guard let self else { return }
+            bindAnimeData()
+            getTrendingAnime()
+            getForYouAnime()
+            getThisSeason()
+            getUpcomingSeason()
+            self.errorVC?.view.removeFromSuperview()
+            self.errorVC?.removeFromParent()
+            isShowingError = false
+        })
+        if self.errorVC == nil {
+            self.errorVC = errorVC
+        }
+        addChild(self.errorVC!)
+        view.addSubview(self.errorVC!.view)
+        self.errorVC!.view.pinToAllSides(to: view)
+        
     }
 }
