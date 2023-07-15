@@ -69,7 +69,8 @@ class BrowseAnimeViewController: UIViewController {
     func applyFirstSnapshotSection() {
         snapshot.appendSections(BrowseAnimeSection.allCases)
         BrowseAnimeSection.allCases.forEach({
-            snapshot.appendItems([AnimeCardModel(animeName: "", animeImageURL: "", malId: 0, isLoading: true), AnimeCardModel(animeName: "", animeImageURL: "", malId: 0, isLoading: true), AnimeCardModel(animeName: "", animeImageURL: "", malId: 0, isLoading: true), AnimeCardModel(animeName: "", animeImageURL: "", malId: 0, isLoading: true), AnimeCardModel(animeName: "", animeImageURL: "", malId: 0, isLoading: true)], toSection: $0)
+            let emptyAnimeData =  AnimeData(rating: "", score: 0, type: "", status: "", background: "", synopsys: "", rank: 0, aired: Date(), titleJp: "", titleEng: "")
+            snapshot.appendItems([AnimeCardModel(animeName: "", animeImageURL: "", malId: 0, isLoading: true, animeData: emptyAnimeData), AnimeCardModel(animeName: "", animeImageURL: "", malId: 0, isLoading: true, animeData: emptyAnimeData), AnimeCardModel(animeName: "", animeImageURL: "", malId: 0, isLoading: true, animeData: emptyAnimeData), AnimeCardModel(animeName: "", animeImageURL: "", malId: 0, isLoading: true, animeData: emptyAnimeData), AnimeCardModel(animeName: "", animeImageURL: "", malId: 0, isLoading: true, animeData: emptyAnimeData)], toSection: $0)
         })
         dependency.dataSource.apply(snapshot)
     }
@@ -202,6 +203,5 @@ class BrowseAnimeViewController: UIViewController {
         addChild(self.errorVC!)
         view.addSubview(self.errorVC!.view)
         self.errorVC!.view.pinToAllSides(to: view)
-        
     }
 }

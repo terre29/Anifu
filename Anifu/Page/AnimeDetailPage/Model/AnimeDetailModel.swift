@@ -14,7 +14,32 @@ struct AnimeDetailDependency {
     let animeRanking: String
     let animeTitle: String
     let animeType: String
-    let animeAired: String
+    let animeAired: Date
+    let titles: AnimeTitle
+}
+
+struct AnimeTitle {
+    let english: String
+    let japanese: String
+}
+
+enum DisplayedTitle {
+    case Eng
+    case Jpn
+    case Oth
 }
 
 
+extension UIButton.Configuration {
+    static func configEngNameButton(isSelected: Bool) -> UIButton.Configuration {
+        var configuration  = isSelected ? UIButton.Configuration.filled() : UIButton.Configuration.bordered()
+        configuration.title = "EN"
+        return configuration
+    }
+    
+    static func configJpnNameButton(isSelected: Bool) -> UIButton.Configuration {
+        var configuration  = isSelected ? UIButton.Configuration.filled() : UIButton.Configuration.bordered()
+        configuration.title = "JP"
+        return configuration
+    }
+}

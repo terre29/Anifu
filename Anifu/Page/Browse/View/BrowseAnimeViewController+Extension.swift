@@ -96,8 +96,6 @@ extension BrowseAnimeViewController {
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .continuous
         section.boundarySupplementaryItems = [makeHeaderSection()]
-        section.visibleItemsInvalidationHandler = { [weak self] (visibleItem, offset, env) in
-        }
         return section
         
     }
@@ -146,7 +144,10 @@ extension BrowseAnimeViewController: UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        dependency.browseViewModel.routeToAnimeDetail()
+        guard let cell = collectionView.cellForItem(at: indexPath) as? AnimeCollectionViewCell else { return }
+        let animeTitles = AnimeTitle(english: cell.model.animeData.titleEng, japanese: cell.model.animeData.titleJp)
+        let dependency = AnimeDetailDependency(animeImage: cell.didSelectCell(), animeRating: cell.model.animeData.rating, animeRanking: "#\(cell.model.animeData.rank)", animeTitle: cell.title.text ?? "", animeType: cell.model.animeData.type, animeAired: cell.model.animeData.aired, titles: animeTitles)
+        self.dependency.browseViewModel.routeToAnimeDetail(dependency)
     }
 }
 

@@ -35,15 +35,27 @@ struct AnimeResponse: Decodable, Hashable {
     let mal_id: Int
     let url: String
     let title: String
+    let title_english: String?
+    let title_japanese: String?
     let images: ImagesResponse
     let rating: String?
     let score: Double?
     let status: String
     let year: Int?
+    let type: String
+    let synopsis: String
+    let background: String?
+    let rank: Int?
+    let aired: AiredStatus
 }
 
 struct ImagesResponse: Decodable, Hashable {
     let jpg: ImageJpgResponse
+}
+
+struct AiredStatus: Decodable, Hashable {
+    let from: Date?
+    let to: Date?
 }
 
 struct ImageJpgResponse: Decodable, Hashable {

@@ -16,8 +16,10 @@ struct TrendingAnimeList {
 extension TrendingAnimeList {
     init(anime: [AnimeResponse]) {
         self.viewModel = anime.map({
-            AnimeCardModel(animeName: $0.title, animeImageURL: $0.images.jpg.image_url, malId: $0.mal_id, isLoading: false)
+            let animeData = AnimeData(rating: $0.rating ?? "", score: $0.score ?? 0, type: $0.type, status: $0.status, background: $0.background ?? "", synopsys: $0.synopsis, rank: $0.rank ?? 0, aired: $0.aired.from ?? Date(), titleJp: $0.title_japanese ?? "", titleEng: $0.title_english ?? "")
+            return AnimeCardModel(animeName: $0.title, animeImageURL: $0.images.jpg.large_image_url, malId: $0.mal_id, isLoading: false, animeData: animeData)
         })
+       
     }
 }
 
@@ -31,6 +33,20 @@ struct AnimeCardModel: Hashable {
     let animeImageURL: String
     let malId: Int
     let isLoading: Bool
+    let animeData: AnimeData
+}
+
+struct AnimeData: Decodable, Hashable {
+    let rating: String
+    let score: Double
+    let type: String
+    let status: String
+    let background: String
+    let synopsys: String
+    let rank: Int
+    let aired: Date
+    let titleJp: String
+    let titleEng: String
 }
 
 class BrowseViewModel: BrowseAnimeViewControllerBusinessLogic {
@@ -44,7 +60,7 @@ class BrowseViewModel: BrowseAnimeViewControllerBusinessLogic {
     var thisSeasonModel = PublishSubject<TrendingAnimeList>()
     var upcomingSeasonModel = PublishSubject<TrendingAnimeList>()
     
-    var routeToAnimeDetail: () -> Void = {}
+    var routeToAnimeDetail: (AnimeDetailDependency) -> Void = {_ in }
     var browseVCErrorHandler: (Error) -> Void = {_ in}
     
     func getTopAnimeList(resource: Resource<JikanResponse>){

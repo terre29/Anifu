@@ -42,6 +42,19 @@ extension UIView {
     }
 }
 
+extension UIStackView {
+    func setMargin(_ margin: UIEdgeInsets) {
+        isLayoutMarginsRelativeArrangement = true
+        layoutMargins = margin
+    }
+}
+
+extension UIEdgeInsets {
+    init(marginAll: CGFloat) {
+        self.init(top: marginAll, left: marginAll, bottom: marginAll, right: marginAll)
+    }
+}
+
 extension UIViewController {
     
 }

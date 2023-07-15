@@ -28,13 +28,11 @@ struct BrowseAnimeComposer {
         browseViewModel.browseVCErrorHandler = { [weak vc] error in
             vc?.browseViewControllerErrorHandler(error: error)
         }
-        browseViewModel.routeToAnimeDetail = {
-            let animeDetailVM = AnimeDetailViewModel(
-                animeDetailDependency: .init(animeImage: UIImage(), animeRating: "20", animeRanking: "#1", animeTitle: "Kambing Hitam", animeType: "OVA", animeAired: "Besok")
-            )
+        browseViewModel.routeToAnimeDetail = { dataNeeded in
+            let animeDetailVM = AnimeDetailViewModel()
             let animeDetailVC = AnimeDetailPageComposer.createAnimeDetailViewController(viewModel: animeDetailVM)
             let animeDetailPageRouter = Router(sourceViewController: vc)
-            animeDetailPageRouter.route(to: animeDetailVC)
+            animeDetailPageRouter.route(to: animeDetailVC, with: dataNeeded)
         }
         
         vc.title = "Browse"

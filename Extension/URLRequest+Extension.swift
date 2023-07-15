@@ -32,7 +32,9 @@ extension URLRequest {
                         return Observable.error(error)
                     })
             }.map { data -> T in
-                let jsonData = try JSONDecoder().decode(T.self, from: data)
+                let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .iso8601
+                let jsonData = try decoder.decode(T.self, from: data)
                 return jsonData
             }
     }
