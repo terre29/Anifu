@@ -16,6 +16,7 @@ class AnifuTabBarController: UITabBarController, UITabBarControllerDelegate {
         self.viewControllerList = viewControllerList
         super.init(nibName: nil, bundle: nil)
         self.viewControllers = viewControllers
+        
     }
     
     required init?(coder: NSCoder) {
@@ -24,13 +25,13 @@ class AnifuTabBarController: UITabBarController, UITabBarControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTabBarItem()
         delegate = self
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setupTabBarItem()
+       
     }
     
     func setupTabBarItem() {

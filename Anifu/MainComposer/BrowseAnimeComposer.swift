@@ -32,6 +32,7 @@ struct BrowseAnimeComposer {
             let animeDetailVM = AnimeDetailViewModel()
             let animeDetailVC = AnimeDetailPageComposer.createAnimeDetailViewController(viewModel: animeDetailVM)
             let animeDetailPageRouter = Router(sourceViewController: vc)
+            animeDetailVC.hidesBottomBarWhenPushed = true
             animeDetailPageRouter.route(to: animeDetailVC, with: dataNeeded)
         }
         

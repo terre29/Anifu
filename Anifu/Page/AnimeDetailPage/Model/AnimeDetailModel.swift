@@ -15,10 +15,14 @@ struct AnimeDetailDependency {
     let animeTitle: String
     let animeType: String
     let animeAired: Date
+    let animeScore: Double
+    let animeScoreBy: Int
+    let sysnopsis: String
     let titles: AnimeTitle
 }
 
 struct AnimeTitle {
+    let original: String
     let english: String
     let japanese: String
 }

@@ -31,12 +31,12 @@ extension AnimeListViewModel {
     init(anime: [AnimeResponse]) {
         self.animeList = anime.map({
             Anime(anime: .init(
-                animeImageURL: URL(string:$0.url),
-                name: $0.title,
+                animeImageURL: URL(string:$0.url ?? ""),
+                name: $0.title ?? "",
                 score: "\($0.score)",
                 year: "\($0.year)",
-                status: $0.status,
-                ratings: $0.status)
+                status: $0.status ?? "",
+                ratings: $0.status ?? "")
             )
         })
     }

@@ -27,6 +27,7 @@ class AnimeDetailPageViewController: UIViewController {
     let backgroundView: UIImageView = {
         let view = UIImageView()
         view.contentMode = .scaleAspectFill
+        view.clipsToBounds = true
         return view
     }()
     
@@ -52,8 +53,10 @@ class AnimeDetailPageViewController: UIViewController {
     let headerStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
+        stackView.spacing = 8
         stackView.layoutMargins = .init(top: 8, left: 8, bottom: 8, right: 8)
         stackView.isLayoutMarginsRelativeArrangement = true
+        stackView.distribution = .fillEqually
         return stackView
     }()
     
@@ -71,21 +74,56 @@ class AnimeDetailPageViewController: UIViewController {
         return stackView
     }()
     
-    let rankingLabel: UILabel = {
-        let label = UILabel()
-        label.text = "#1"
-        return label
-    }()
-    
     let ratingLabel: UILabel = {
         let label = UILabel()
         return label
     }()
     
+    let scoreLabel: UILabel = {
+        let label = UILabel()
+        label.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        label.text = "SCORE"
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        return label
+    }()
+    
+    let scoreLabelBackground: UIView = {
+        let view = UIView()
+        view.layer.cornerRadius = 8
+        view.backgroundColor = AnifuColorPicker.pick.secondColor
+        view.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        return view
+    }()
+    
+    let scoreValueLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 20, weight: .black)
+        label.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    let scoredByLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        label.setContentHuggingPriority(.defaultLow, for: .vertical)
+        return label
+    }()
+    
+    let scoreAndScoredByStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.spacing = 4
+        stackView.axis = .vertical
+        return stackView
+    }()
+    
+    
     let typeAndAiredStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
-   
         return stackView
     }()
     
@@ -199,6 +237,67 @@ class AnimeDetailPageViewController: UIViewController {
         return view
     }()
     
+    let rankingLabelStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        return stackView
+    }()
+    
+    let rankingContainerView = {
+        let view = UIView()
+        view.layer.cornerRadius = 8
+        view.backgroundColor = AnifuColorPicker.pick.secondColor
+        return view
+    }()
+    
+    let rankingLabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.text = "RANKED"
+        label.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        label.font = AnifuFontPicker.pick.highlightText
+        return label
+    }()
+    
+    let rankingLabelValue = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.font = AnifuFontPicker.pick.superHighlightText
+        return label
+    }()
+    
+    let animeInfoView: UIView = {
+        let view = UIView()
+        return view
+    }()
+    
+    let synopsisStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 8
+        return stackView
+    }()
+    
+    let synopsisBackgroundView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(white: 1, alpha: 0.3)
+        view.layer.cornerRadius = 8
+        return view
+    }()
+    
+    let synopsisTitleLabel: UILabel = {
+        let label = UILabel()
+        label.font  = AnifuFontPicker.pick.titleText
+        label.text = "Synopsis"
+        return label
+    }()
+    
+    let synopsisContentLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        return label
+    }()
+    
     // MARK: Required Data
     
     var animeName: String = "" {
@@ -230,13 +329,31 @@ class AnimeDetailPageViewController: UIViewController {
     
     var animeRanking: String = "" {
         didSet {
-            rankingLabel.text = animeRanking
+            rankingLabelValue.text = animeRanking
         }
     }
     
     var animeRating: String = "" {
         didSet {
             ratingLabel.text = animeRating
+        }
+    }
+    
+    var animeScore: String = "" {
+        didSet {
+            scoreValueLabel.text = animeScore
+        }
+    }
+    
+    var animeScoredBy: String = "" {
+        didSet {
+            scoredByLabel.text = animeScoredBy
+        }
+    }
+    
+    var animeSynopsis: String = "" {
+        didSet {
+            synopsisContentLabel.text = animeSynopsis
         }
     }
     
@@ -269,7 +386,10 @@ class AnimeDetailPageViewController: UIViewController {
             .subscribe(
             onNext: { [weak self] data in
                 self?.animeImage = data.animeImage
+                self?.animeSynopsis = data.sysnopsis
                 self?.animeAiredDate = AnifuDateFormatter.shared.formatDate(format: .MMyyyy).string(from: data.animeAired)
+                self?.animeScore = data.animeScore != 0 ? "\(data.animeScore)/10" : "Not yet rated"
+                self?.animeScoredBy = "by \(data.animeScoreBy) users"
                 self?.animeName = data.animeTitle
                 self?.animeType = data.animeType
                 self?.animeRating = data.animeRating
@@ -297,7 +417,7 @@ class AnimeDetailPageViewController: UIViewController {
                 onNext: { [weak self] displayedTitle in
                     switch displayedTitle {
                     case .Eng:
-                        self?.animeName = self?.animeTitles?.english ?? "XXX"
+                        self?.animeName = (self?.animeTitles?.english == "") ? self?.animeTitles?.original ?? "XXX" : self?.animeTitles?.english ?? "XXX"
                         self?.engNameButton.configuration = UIButton.Configuration.configEngNameButton(isSelected: true)
                         self?.jpnNameButton.configuration = UIButton.Configuration.configJpnNameButton(isSelected: false)
                     case .Jpn:
@@ -322,12 +442,11 @@ class AnimeDetailPageViewController: UIViewController {
         contentScrollView.addSubview(containerContentView)
         containerContentView.pinToAllSides(to: contentScrollView)
         
-        containerContentView.translatesAutoresizingMaskIntoConstraints = false
-        
         let containerHeightAnchor = containerContentView.heightAnchor.constraint(equalTo: contentScrollView.heightAnchor, multiplier: 1)
         containerHeightAnchor.isActive = true
         containerHeightAnchor.priority = UILayoutPriority(250)
         containerContentView.widthAnchor.constraint(equalTo: contentScrollView.widthAnchor, multiplier: 1).isActive = true
+        
         containerContentView.addSubview(contentView)
       
         contentView.pinToAllSideWith16Constant(to: containerContentView)
@@ -347,18 +466,35 @@ class AnimeDetailPageViewController: UIViewController {
         headerAndNameStackView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         headerAndNameStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
         headerAndNameStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
-        headerAndNameStackView.bottomAnchor.constraint(greaterThanOrEqualTo: contentView.bottomAnchor, constant: 0).isActive = true
+        headerAndNameStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
         headerStackView.addArrangedSubview(animeImageContainer)
+        
         animeImageContainer.addSubview(animeImageView)
         animeImageView.pinToAllSides(to: animeImageContainer)
-        animeImageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
-        animeImageView.translatesAutoresizingMaskIntoConstraints = false
      
-        headerStackView.addArrangedSubview(animeInformationStackView)
+        headerStackView.addArrangedSubview(animeInfoView)
+        animeInfoView.addSubview(scoreAndScoredByStackView)
+        scoreAndScoredByStackView.pinToAllSides(to: animeInfoView)
+       
+        scoreAndScoredByStackView.addArrangedSubview(scoreLabelBackground)
+        scoreLabelBackground.addSubview(scoreLabel)
+        scoreLabel.pinToAllSideWith8Constant(to: scoreLabelBackground)
+        scoreAndScoredByStackView.addArrangedSubview(scoreValueLabel)
+        scoreAndScoredByStackView.addArrangedSubview(scoredByLabel)
         
-        animeInformationStackView.addArrangedSubview(rankingAndRatingsStackView)
-        rankingAndRatingsStackView.addArrangedSubview(rankingLabel)
-        rankingAndRatingsStackView.addArrangedSubview(ratingLabel)
+        headerStackView.addArrangedSubview(rankingLabelStackView)
+        rankingLabelStackView.addArrangedSubview(rankingContainerView)
+        rankingContainerView.addSubview(rankingLabel)
+        rankingLabel.pinToAllSideWith8Constant(to: rankingContainerView)
+        
+        rankingLabelStackView.addArrangedSubview(rankingLabelValue)
+        
+        headerAndNameStackView.addArrangedSubview(synopsisBackgroundView)
+        synopsisBackgroundView.addSubview(synopsisStackView)
+        synopsisStackView.pinToAllSideWith8Constant(to: synopsisBackgroundView)
+        
+        synopsisStackView.addArrangedSubview(synopsisTitleLabel)
+        synopsisStackView.addArrangedSubview(synopsisContentLabel)
         
         animeInformationStackView.addArrangedSubview(typeAndAiredStackView)
         typeAndAiredStackView.addArrangedSubview(typeStackView)

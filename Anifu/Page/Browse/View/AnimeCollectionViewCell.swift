@@ -15,7 +15,7 @@ class AnimeCollectionViewCell: UICollectionViewCell {
     
     private let disposeBag = DisposeBag()
 
-    var model: AnimeCardModel = AnimeCardModel(animeName: "", animeImageURL: "", malId: 0, isLoading: true, animeData: AnimeData(rating: "", score: 0, type: "", status: "", background: "", synopsys: "", rank: 0, aired: Date(), titleJp: "", titleEng: "")) {
+    var model: AnimeCardModel = AnimeCardModel(animeName: "", animeImageURL: "", malId: 0, isLoading: true, animeData: AnimeData(rating: "", score: 0, scoredBy: 0, type: "", status: "", background: "", synopsys: "", rank: 0, aired: Date(), titleJp: "", titleEng: "")) {
         didSet {
             populateData()
         }

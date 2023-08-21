@@ -35,10 +35,12 @@
 		5DC9164B298CB5C000391DAB /* ShimmeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC9164A298CB5BF00391DAB /* ShimmeringView.swift */; };
 		C3117A822A59860300A8CFFC /* AnifuErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3117A812A59860300A8CFFC /* AnifuErrorViewController.swift */; };
 		C3117A942A5EDB9200A8CFFC /* AnifuDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3117A932A5EDB9200A8CFFC /* AnifuDateFormatter.swift */; };
+		C314AAB92A6410EE009B60CF /* AnifuColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C314AAB82A6410EE009B60CF /* AnifuColorPicker.swift */; };
 		C324F4C62A188B2600A75F85 /* AnimeDetailPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C324F4C52A188B2600A75F85 /* AnimeDetailPageViewController.swift */; };
 		C33061F82A0FB6660090EA4C /* ProfilePageHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33061F72A0FB6660090EA4C /* ProfilePageHeaderCell.swift */; };
 		C35852D72A0D2AF300ADB46E /* ProfilePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35852D62A0D2AF300ADB46E /* ProfilePageViewController.swift */; };
 		C35852D92A0D337100ADB46E /* ProfilePageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35852D82A0D337100ADB46E /* ProfilePageCell.swift */; };
+		C37E82EE2A67B50A00C0D923 /* AnifuFontPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37E82ED2A67B50A00C0D923 /* AnifuFontPicker.swift */; };
 		C3E09ADF2A0DE1FB00A3D5AA /* ProfilePageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E09ADE2A0DE1FB00A3D5AA /* ProfilePageViewModel.swift */; };
 		C3E36B2F2A0A31920081188E /* AnifuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E36B2E2A0A31920081188E /* AnifuTests.swift */; };
 		C3E36B372A0A31DC0081188E /* BrowsePageViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E36B362A0A31DC0081188E /* BrowsePageViewModelTest.swift */; };
@@ -89,10 +91,12 @@
 		5DC9164A298CB5BF00391DAB /* ShimmeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmeringView.swift; sourceTree = "<group>"; };
 		C3117A812A59860300A8CFFC /* AnifuErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnifuErrorViewController.swift; sourceTree = "<group>"; };
 		C3117A932A5EDB9200A8CFFC /* AnifuDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnifuDateFormatter.swift; sourceTree = "<group>"; };
+		C314AAB82A6410EE009B60CF /* AnifuColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnifuColorPicker.swift; sourceTree = "<group>"; };
 		C324F4C52A188B2600A75F85 /* AnimeDetailPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeDetailPageViewController.swift; sourceTree = "<group>"; };
 		C33061F72A0FB6660090EA4C /* ProfilePageHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageHeaderCell.swift; sourceTree = "<group>"; };
 		C35852D62A0D2AF300ADB46E /* ProfilePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageViewController.swift; sourceTree = "<group>"; };
 		C35852D82A0D337100ADB46E /* ProfilePageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageCell.swift; sourceTree = "<group>"; };
+		C37E82ED2A67B50A00C0D923 /* AnifuFontPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnifuFontPicker.swift; sourceTree = "<group>"; };
 		C3E09ADE2A0DE1FB00A3D5AA /* ProfilePageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageViewModel.swift; sourceTree = "<group>"; };
 		C3E36B2C2A0A31920081188E /* AnifuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnifuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3E36B2E2A0A31920081188E /* AnifuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnifuTests.swift; sourceTree = "<group>"; };
@@ -342,6 +346,8 @@
 			children = (
 				C3117A812A59860300A8CFFC /* AnifuErrorViewController.swift */,
 				C3117A932A5EDB9200A8CFFC /* AnifuDateFormatter.swift */,
+				C314AAB82A6410EE009B60CF /* AnifuColorPicker.swift */,
+				C37E82ED2A67B50A00C0D923 /* AnifuFontPicker.swift */,
 			);
 			name = AnifuTools;
 			sourceTree = "<group>";
@@ -542,6 +548,7 @@
 				5D32F7BB294B0CEF002CE156 /* ViewController.swift in Sources */,
 				C3ED066F2A22157E0091C382 /* AnimeDetailViewModel.swift in Sources */,
 				5D32F7B7294B0CEF002CE156 /* AppDelegate.swift in Sources */,
+				C37E82EE2A67B50A00C0D923 /* AnifuFontPicker.swift in Sources */,
 				C324F4C62A188B2600A75F85 /* AnimeDetailPageViewController.swift in Sources */,
 				C35852D92A0D337100ADB46E /* ProfilePageCell.swift in Sources */,
 				C35852D72A0D2AF300ADB46E /* ProfilePageViewController.swift in Sources */,
@@ -562,6 +569,7 @@
 				5D9BC461296C17A5009110C0 /* URLConstant.swift in Sources */,
 				5D4C3F96295D8DE20009FB3B /* AnimeModel.swift in Sources */,
 				C3F5C6662A162C25008C749F /* ProfilePageComposer.swift in Sources */,
+				C314AAB92A6410EE009B60CF /* AnifuColorPicker.swift in Sources */,
 				5D39781F2963F95300E4FEA5 /* AnimeListModel.swift in Sources */,
 				5D39781C2963F63200E4FEA5 /* AnimeListViewController.swift in Sources */,
 				5D9D00F9295D910200A8EF9B /* URLRequest+Extension.swift in Sources */,

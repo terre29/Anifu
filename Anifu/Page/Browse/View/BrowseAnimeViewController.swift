@@ -66,10 +66,14 @@ class BrowseAnimeViewController: UIViewController {
         subscribeSearchBar()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
     func applyFirstSnapshotSection() {
         snapshot.appendSections(BrowseAnimeSection.allCases)
         BrowseAnimeSection.allCases.forEach({
-            let emptyAnimeData =  AnimeData(rating: "", score: 0, type: "", status: "", background: "", synopsys: "", rank: 0, aired: Date(), titleJp: "", titleEng: "")
+            let emptyAnimeData =  AnimeData(rating: "", score: 0, scoredBy: 0, type: "", status: "", background: "", synopsys: "", rank: 0, aired: Date(), titleJp: "", titleEng: "")
             snapshot.appendItems([AnimeCardModel(animeName: "", animeImageURL: "", malId: 0, isLoading: true, animeData: emptyAnimeData), AnimeCardModel(animeName: "", animeImageURL: "", malId: 0, isLoading: true, animeData: emptyAnimeData), AnimeCardModel(animeName: "", animeImageURL: "", malId: 0, isLoading: true, animeData: emptyAnimeData), AnimeCardModel(animeName: "", animeImageURL: "", malId: 0, isLoading: true, animeData: emptyAnimeData), AnimeCardModel(animeName: "", animeImageURL: "", malId: 0, isLoading: true, animeData: emptyAnimeData)], toSection: $0)
         })
         dependency.dataSource.apply(snapshot)
