@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22D68" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="AnifuUser" representedClassName="AnifuUser" syncable="YES">
+        <attribute name="animePreference" optional="YES" attributeType="Integer 16" minValueString="0" maxValueString="100" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="savedAnime" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SavedAnime" inverseName="user" inverseEntity="SavedAnime"/>
+    </entity>
+    <entity name="SavedAnime" representedClassName="SavedAnime" syncable="YES">
+        <attribute name="animeName" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AnifuUser" inverseName="savedAnime" inverseEntity="AnifuUser"/>
+    </entity>
+</model>
