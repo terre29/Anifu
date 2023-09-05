@@ -34,6 +34,7 @@ enum DisplayedTitle {
 }
 
 
+@available(iOS 15.0, *)
 extension UIButton.Configuration {
     static func configEngNameButton(isSelected: Bool) -> UIButton.Configuration {
         var configuration  = isSelected ? UIButton.Configuration.filled() : UIButton.Configuration.bordered()

@@ -393,7 +393,7 @@ class AnimeDetailPageViewController: UIViewController {
                 self?.animeName = data.animeTitle
                 self?.animeType = data.animeType
                 self?.animeRating = data.animeRating
-                self?.animeRanking = data.animeRanking
+                self?.animeRanking = data.animeRanking == "#0" ? "Not yet ranked" : data.animeRanking
             }
         )
         .disposed(by: disposeBag)

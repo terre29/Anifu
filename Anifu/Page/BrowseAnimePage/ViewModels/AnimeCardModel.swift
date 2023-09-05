@@ -19,7 +19,7 @@ extension TrendingAnimeList {
             let animeData = AnimeData(rating: $0.rating ?? "", score: $0.score ?? 0, scoredBy: $0.scored_by ?? 0, type: $0.type ?? "", status: $0.status!, background: $0.background ?? "", synopsys: $0.synopsis ?? "", rank: $0.rank ?? 0, aired: $0.aired.from ?? Date(), titleJp: $0.title_japanese ?? "", titleEng: $0.title_english ?? "")
             return AnimeCardModel(animeName: $0.title ?? "", animeImageURL: $0.images.jpg.large_image_url, malId: $0.mal_id, isLoading: false, animeData: animeData)
         })
-       
+        
     }
 }
 
@@ -91,7 +91,6 @@ class BrowseViewModel: BrowseAnimeViewControllerBusinessLogic {
     }
     
     func getThisAnimeList(resource: Resource<JikanResponse>) {
-        
         URLRequest.load(resource: resource)
             .observe(on: MainScheduler.instance)
             .catch({ [weak self] error in
@@ -106,7 +105,6 @@ class BrowseViewModel: BrowseAnimeViewControllerBusinessLogic {
     }
     
     func getUpcomingAnimeList(resource: Resource<JikanResponse>) {
-        
         URLRequest.load(resource: resource)
             .observe(on: MainScheduler.instance)
             .catch({ [weak self] error in

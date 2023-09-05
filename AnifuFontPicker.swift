@@ -11,6 +11,10 @@ import UIKit
 public class AnifuFontPicker {
     public static let pick = AnifuFontPicker()
     
+    var bodyText: UIFont {
+        return UIFont.systemFont(ofSize: 16, weight: .regular)
+    }
+    
     var highlightText: UIFont {
         return UIFont.systemFont(ofSize: 18, weight: .bold)
     }

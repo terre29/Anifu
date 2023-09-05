@@ -38,9 +38,15 @@
 		C314AAB92A6410EE009B60CF /* AnifuColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C314AAB82A6410EE009B60CF /* AnifuColorPicker.swift */; };
 		C324F4C62A188B2600A75F85 /* AnimeDetailPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C324F4C52A188B2600A75F85 /* AnimeDetailPageViewController.swift */; };
 		C33061F82A0FB6660090EA4C /* ProfilePageHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33061F72A0FB6660090EA4C /* ProfilePageHeaderCell.swift */; };
+		C34D523A2AA18E7C003595E5 /* SavedAnime+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34D52362AA18E7C003595E5 /* SavedAnime+CoreDataClass.swift */; };
+		C34D523B2AA18E7C003595E5 /* SavedAnime+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34D52372AA18E7C003595E5 /* SavedAnime+CoreDataProperties.swift */; };
+		C34D523C2AA18E7C003595E5 /* AnifuUser+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34D52382AA18E7C003595E5 /* AnifuUser+CoreDataClass.swift */; };
+		C34D523D2AA18E7C003595E5 /* AnifuUser+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34D52392AA18E7C003595E5 /* AnifuUser+CoreDataProperties.swift */; };
+		C34D52402AA19711003595E5 /* AnifuCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34D523F2AA19711003595E5 /* AnifuCoreDataManager.swift */; };
 		C35852D72A0D2AF300ADB46E /* ProfilePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35852D62A0D2AF300ADB46E /* ProfilePageViewController.swift */; };
 		C35852D92A0D337100ADB46E /* ProfilePageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35852D82A0D337100ADB46E /* ProfilePageCell.swift */; };
 		C37E82EE2A67B50A00C0D923 /* AnifuFontPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37E82ED2A67B50A00C0D923 /* AnifuFontPicker.swift */; };
+		C3B3EA792A9C7B8500A35696 /* SavedAnime.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C3B3EA772A9C7B8500A35696 /* SavedAnime.xcdatamodeld */; };
 		C3E09ADF2A0DE1FB00A3D5AA /* ProfilePageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E09ADE2A0DE1FB00A3D5AA /* ProfilePageViewModel.swift */; };
 		C3E36B2F2A0A31920081188E /* AnifuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E36B2E2A0A31920081188E /* AnifuTests.swift */; };
 		C3E36B372A0A31DC0081188E /* BrowsePageViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E36B362A0A31DC0081188E /* BrowsePageViewModelTest.swift */; };
@@ -94,9 +100,15 @@
 		C314AAB82A6410EE009B60CF /* AnifuColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnifuColorPicker.swift; sourceTree = "<group>"; };
 		C324F4C52A188B2600A75F85 /* AnimeDetailPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeDetailPageViewController.swift; sourceTree = "<group>"; };
 		C33061F72A0FB6660090EA4C /* ProfilePageHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageHeaderCell.swift; sourceTree = "<group>"; };
+		C34D52362AA18E7C003595E5 /* SavedAnime+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SavedAnime+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C34D52372AA18E7C003595E5 /* SavedAnime+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SavedAnime+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C34D52382AA18E7C003595E5 /* AnifuUser+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnifuUser+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C34D52392AA18E7C003595E5 /* AnifuUser+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnifuUser+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C34D523F2AA19711003595E5 /* AnifuCoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnifuCoreDataManager.swift; sourceTree = "<group>"; };
 		C35852D62A0D2AF300ADB46E /* ProfilePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageViewController.swift; sourceTree = "<group>"; };
 		C35852D82A0D337100ADB46E /* ProfilePageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageCell.swift; sourceTree = "<group>"; };
 		C37E82ED2A67B50A00C0D923 /* AnifuFontPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnifuFontPicker.swift; sourceTree = "<group>"; };
+		C3B3EA782A9C7B8500A35696 /* SavedAnime.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SavedAnime.xcdatamodel; sourceTree = "<group>"; };
 		C3E09ADE2A0DE1FB00A3D5AA /* ProfilePageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageViewModel.swift; sourceTree = "<group>"; };
 		C3E36B2C2A0A31920081188E /* AnifuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnifuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3E36B2E2A0A31920081188E /* AnifuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnifuTests.swift; sourceTree = "<group>"; };
@@ -174,12 +186,12 @@
 		5D32F7B5294B0CEF002CE156 /* Anifu */ = {
 			isa = PBXGroup;
 			children = (
+				C34D523E2AA196F7003595E5 /* App */,
+				C357DAEB2AA18A4E003BBCA4 /* CoreDataModel */,
 				5D9BC463296D14FA009110C0 /* TabBarController */,
 				C34D81CC2A09F89C00FC07EA /* Page */,
 				5DA0FAE92962EF2000F3C916 /* ApiHelper */,
 				5D18735A296E736B00831F54 /* MainComposer */,
-				5D32F7B6294B0CEF002CE156 /* AppDelegate.swift */,
-				5D32F7B8294B0CEF002CE156 /* SceneDelegate.swift */,
 				5D32F7BA294B0CEF002CE156 /* ViewController.swift */,
 				5D32F7BF294B0CF1002CE156 /* Assets.xcassets */,
 				5D32F7C1294B0CF1002CE156 /* LaunchScreen.storyboard */,
@@ -197,7 +209,7 @@
 			path = PreviewHelper;
 			sourceTree = "<group>";
 		};
-		5D32F7CD294B1FA5002CE156 /* Browse */ = {
+		5D32F7CD294B1FA5002CE156 /* BrowseAnimePage */ = {
 			isa = PBXGroup;
 			children = (
 				5D9BC45F296C1796009110C0 /* Constants */,
@@ -205,7 +217,7 @@
 				5D9D00FA295EB70E00A8EF9B /* View */,
 				5D32F7D2294B21A5002CE156 /* Model */,
 			);
-			path = Browse;
+			path = BrowseAnimePage;
 			sourceTree = "<group>";
 		};
 		5D32F7D2294B21A5002CE156 /* Model */ = {
@@ -330,15 +342,37 @@
 			path = ProfilePage;
 			sourceTree = "<group>";
 		};
+		C34D523E2AA196F7003595E5 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				5D32F7B6294B0CEF002CE156 /* AppDelegate.swift */,
+				5D32F7B8294B0CEF002CE156 /* SceneDelegate.swift */,
+				C34D523F2AA19711003595E5 /* AnifuCoreDataManager.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 		C34D81CC2A09F89C00FC07EA /* Page */ = {
 			isa = PBXGroup;
 			children = (
 				C324F4C42A188B1100A75F85 /* AnimeDetailPage */,
 				C33A24292A0C8ADE009AD856 /* ProfilePage */,
 				5D39781A2963F61000E4FEA5 /* TopAnimePage */,
-				5D32F7CD294B1FA5002CE156 /* Browse */,
+				5D32F7CD294B1FA5002CE156 /* BrowseAnimePage */,
 			);
 			path = Page;
+			sourceTree = "<group>";
+		};
+		C357DAEB2AA18A4E003BBCA4 /* CoreDataModel */ = {
+			isa = PBXGroup;
+			children = (
+				C34D52362AA18E7C003595E5 /* SavedAnime+CoreDataClass.swift */,
+				C34D52372AA18E7C003595E5 /* SavedAnime+CoreDataProperties.swift */,
+				C34D52382AA18E7C003595E5 /* AnifuUser+CoreDataClass.swift */,
+				C34D52392AA18E7C003595E5 /* AnifuUser+CoreDataProperties.swift */,
+				C3B3EA772A9C7B8500A35696 /* SavedAnime.xcdatamodeld */,
+			);
+			path = CoreDataModel;
 			sourceTree = "<group>";
 		};
 		C3B975FE2A545C1100D43708 /* AnifuTools */ = {
@@ -544,6 +578,7 @@
 				5D3978192963DBA900E4FEA5 /* UICollectionView+Extension.swift in Sources */,
 				5DA0FAEB2962EF2F00F3C916 /* APIHelper.swift in Sources */,
 				5D7FA0162965ADB100E38C6F /* BrowseAnimeViewController+Extension.swift in Sources */,
+				C3B3EA792A9C7B8500A35696 /* SavedAnime.xcdatamodeld in Sources */,
 				5DA0FAE82962E8F800F3C916 /* UIView+Extension.swift in Sources */,
 				5D32F7BB294B0CEF002CE156 /* ViewController.swift in Sources */,
 				C3ED066F2A22157E0091C382 /* AnimeDetailViewModel.swift in Sources */,
@@ -556,9 +591,12 @@
 				5D32F7D1294B20D8002CE156 /* AnimeCollectionViewCell.swift in Sources */,
 				5D9BC45B296BB984009110C0 /* AnimeCustomSectionHeader.swift in Sources */,
 				C3E09ADF2A0DE1FB00A3D5AA /* ProfilePageViewModel.swift in Sources */,
+				C34D523B2AA18E7C003595E5 /* SavedAnime+CoreDataProperties.swift in Sources */,
 				5D02E76E29653E17008A1596 /* PublicRouter.swift in Sources */,
+				C34D523A2AA18E7C003595E5 /* SavedAnime+CoreDataClass.swift in Sources */,
 				C3117A942A5EDB9200A8CFFC /* AnifuDateFormatter.swift in Sources */,
 				5D9BC465296D154D009110C0 /* AnifuTabBarController.swift in Sources */,
+				C34D523D2AA18E7C003595E5 /* AnifuUser+CoreDataProperties.swift in Sources */,
 				5DC9164B298CB5C000391DAB /* ShimmeringView.swift in Sources */,
 				C33061F82A0FB6660090EA4C /* ProfilePageHeaderCell.swift in Sources */,
 				5D7D78C5297A39180053B382 /* BrowseAnimeComposer.swift in Sources */,
@@ -566,7 +604,9 @@
 				5D32F7CC294B0F41002CE156 /* Preview.swift in Sources */,
 				5D32F7D4294B21BA002CE156 /* AnimeCardModel.swift in Sources */,
 				C3ED066A2A2212E80091C382 /* AnimeDetailPageComposer.swift in Sources */,
+				C34D52402AA19711003595E5 /* AnifuCoreDataManager.swift in Sources */,
 				5D9BC461296C17A5009110C0 /* URLConstant.swift in Sources */,
+				C34D523C2AA18E7C003595E5 /* AnifuUser+CoreDataClass.swift in Sources */,
 				5D4C3F96295D8DE20009FB3B /* AnimeModel.swift in Sources */,
 				C3F5C6662A162C25008C749F /* ProfilePageComposer.swift in Sources */,
 				C314AAB92A6410EE009B60CF /* AnifuColorPicker.swift in Sources */,
@@ -790,7 +830,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W8T5R97US6;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = id.terretino.AnifuTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -809,7 +849,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W8T5R97US6;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = id.terretino.AnifuTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -851,6 +891,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C3B3EA772A9C7B8500A35696 /* SavedAnime.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C3B3EA782A9C7B8500A35696 /* SavedAnime.xcdatamodel */,
+			);
+			currentVersion = C3B3EA782A9C7B8500A35696 /* SavedAnime.xcdatamodel */;
+			path = SavedAnime.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 5D32F7AB294B0CEE002CE156 /* Project object */;
 }

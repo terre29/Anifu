@@ -10,6 +10,8 @@ import UIKit
 
 class ProfilePageCell: UITableViewCell {
     
+    // MARK: UI Component
+    
     let baseStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.spacing = 8

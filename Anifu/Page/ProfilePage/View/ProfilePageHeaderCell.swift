@@ -7,8 +7,13 @@
 
 import Foundation
 import UIKit
+import RxSwift
 
 class ProfilePageHeaderCell: UITableViewCell {
+    
+    // MARK: Property
+    var nameTapped: (() -> Void)?
+    var viewModel = PublishSubject<ProfileHeaderViewModel>()
     
     let baseStackView: UIStackView = {
         let stackView = UIStackView()
@@ -49,7 +54,7 @@ class ProfilePageHeaderCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
         setupLayout()
-        setupView()
+        setupNameTappedFunction()
     }
     
     required init?(coder: NSCoder) {
@@ -68,18 +73,19 @@ class ProfilePageHeaderCell: UITableViewCell {
         profileImage.translatesAutoresizingMaskIntoConstraints = false
         profileImage.heightAnchor.constraint(equalToConstant: 70).isActive = true
         profileImage.widthAnchor.constraint(equalToConstant: 70).isActive = true
-        
-        
     }
     
     override func layoutSubviews() {
         profileImage.layer.cornerRadius = profileImage.frame.size.height/2
     }
     
-    private func setupView() {
-       
+    private func setupNameTappedFunction() {
+        nameLabel.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(cellNameTapped))
+        nameLabel.addGestureRecognizer(tapGesture)
     }
     
-    
-    
+    @objc func cellNameTapped() {
+        nameTapped!()
+    }
 }
