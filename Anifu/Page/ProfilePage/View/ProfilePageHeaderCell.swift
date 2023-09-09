@@ -34,6 +34,8 @@ class ProfilePageHeaderCell: UITableViewCell {
     
     let nameLabel: UILabel = {
         let label = UILabel()
+        label.font = AnifuFontPicker.pick.highlightText
+        label.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         return label
     }()
     
@@ -42,6 +44,23 @@ class ProfilePageHeaderCell: UITableViewCell {
         label.numberOfLines = 0
         return label
     }()
+    
+    let editButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "square.and.pencil"), for: .normal)
+        button.setContentHuggingPriority(.defaultLow, for: .horizontal)
+        button.contentHorizontalAlignment = .leading
+        return button
+    }()
+    
+    let nameStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.spacing = 4
+        stackView.axis = .horizontal
+        stackView.isUserInteractionEnabled = true
+        return stackView
+    }()
+    
     
     let profileImage: UIImageView = {
         let imageView = UIImageView()
@@ -67,7 +86,9 @@ class ProfilePageHeaderCell: UITableViewCell {
         baseStackView.addArrangedSubview(profileImage)
         baseStackView.addArrangedSubview(nameAndDescriptionStackView)
         
-        nameAndDescriptionStackView.addArrangedSubview(nameLabel)
+        nameAndDescriptionStackView.addArrangedSubview(nameStackView)
+        nameStackView.addArrangedSubview(nameLabel)
+        nameStackView.addArrangedSubview(editButton)
         nameAndDescriptionStackView.addArrangedSubview(descriptionLabel)
         
         profileImage.translatesAutoresizingMaskIntoConstraints = false
@@ -82,7 +103,8 @@ class ProfilePageHeaderCell: UITableViewCell {
     private func setupNameTappedFunction() {
         nameLabel.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(cellNameTapped))
-        nameLabel.addGestureRecognizer(tapGesture)
+        nameStackView.addGestureRecognizer(tapGesture)
+        editButton.addTarget(self, action: #selector(cellNameTapped), for: .touchUpInside)
     }
     
     @objc func cellNameTapped() {

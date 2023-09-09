@@ -15,7 +15,15 @@ enum ProfileCases {
     case Profile
 }
 
-class ProfilePageViewModel {
+protocol ProfilePageBusinessLogic {
+    func updateName(name: String)
+    func updateProfileImage(image: UIImage)
+    
+    var userName: PublishSubject<String> { get set }
+    var profileImage: PublishSubject<UIImage> { get set }
+}
+
+class ProfilePageViewModel: ProfilePageBusinessLogic {
     var userName = PublishSubject<String>()
     var profileImage = PublishSubject<UIImage>()
     
@@ -26,7 +34,7 @@ class ProfilePageViewModel {
         self.fetchUserData = fetchUserData
         self.updateNameCoreData = updateNameCoreData
     }
-    
+
     func updateName(name: String) {
         userName.onNext(name)
     }
@@ -37,8 +45,8 @@ class ProfilePageViewModel {
 }
 
 struct ProfileHeaderViewModel {
-    let userName: String
-    let userImage: UIImage
+    let userName: String?
+    let userImage: UIImage?
 }
 
 struct ProiflePageCellViewModel: Hashable {
@@ -54,11 +62,11 @@ struct ProiflePageCellViewModel: Hashable {
 }
 
 struct ProfilePageHeaderCellViewModel: Hashable {
-    let name: String
+    let name: String?
     let description: String
-    let profileImage: UIImage
+    let profileImage: UIImage?
     
-    init(name: String, description: String, profileImage: UIImage) {
+    init(name: String?, description: String, profileImage: UIImage?) {
         self.name = name
         self.description = description
         self.profileImage = profileImage

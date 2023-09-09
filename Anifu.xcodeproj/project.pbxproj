@@ -32,7 +32,6 @@
 		5D9D00F9295D910200A8EF9B /* URLRequest+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9D00F8295D910200A8EF9B /* URLRequest+Extension.swift */; };
 		5DA0FAE82962E8F800F3C916 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA0FAE72962E8F800F3C916 /* UIView+Extension.swift */; };
 		5DA0FAEB2962EF2F00F3C916 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA0FAEA2962EF2F00F3C916 /* APIHelper.swift */; };
-		5DC9164B298CB5C000391DAB /* ShimmeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC9164A298CB5BF00391DAB /* ShimmeringView.swift */; };
 		C3117A822A59860300A8CFFC /* AnifuErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3117A812A59860300A8CFFC /* AnifuErrorViewController.swift */; };
 		C3117A942A5EDB9200A8CFFC /* AnifuDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3117A932A5EDB9200A8CFFC /* AnifuDateFormatter.swift */; };
 		C314AAB92A6410EE009B60CF /* AnifuColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C314AAB82A6410EE009B60CF /* AnifuColorPicker.swift */; };
@@ -94,7 +93,6 @@
 		5D9D00F8295D910200A8EF9B /* URLRequest+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Extension.swift"; sourceTree = "<group>"; };
 		5DA0FAE72962E8F800F3C916 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		5DA0FAEA2962EF2F00F3C916 /* APIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
-		5DC9164A298CB5BF00391DAB /* ShimmeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmeringView.swift; sourceTree = "<group>"; };
 		C3117A812A59860300A8CFFC /* AnifuErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnifuErrorViewController.swift; sourceTree = "<group>"; };
 		C3117A932A5EDB9200A8CFFC /* AnifuDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnifuDateFormatter.swift; sourceTree = "<group>"; };
 		C314AAB82A6410EE009B60CF /* AnifuColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnifuColorPicker.swift; sourceTree = "<group>"; };
@@ -163,7 +161,6 @@
 			isa = PBXGroup;
 			children = (
 				C3B975FE2A545C1100D43708 /* AnifuTools */,
-				5DC91649298CB5AC00391DAB /* ShimmerView */,
 				5D9D00F7295D90EE00A8EF9B /* Extension */,
 				5D32F7CA294B0EAB002CE156 /* PreviewHelper */,
 				5D32F7B5294B0CEF002CE156 /* Anifu */,
@@ -306,14 +303,6 @@
 				5DA0FAEA2962EF2F00F3C916 /* APIHelper.swift */,
 			);
 			path = ApiHelper;
-			sourceTree = "<group>";
-		};
-		5DC91649298CB5AC00391DAB /* ShimmerView */ = {
-			isa = PBXGroup;
-			children = (
-				5DC9164A298CB5BF00391DAB /* ShimmeringView.swift */,
-			);
-			path = ShimmerView;
 			sourceTree = "<group>";
 		};
 		851925DD11D7FA080C719F92 /* Frameworks */ = {
@@ -597,7 +586,6 @@
 				C3117A942A5EDB9200A8CFFC /* AnifuDateFormatter.swift in Sources */,
 				5D9BC465296D154D009110C0 /* AnifuTabBarController.swift in Sources */,
 				C34D523D2AA18E7C003595E5 /* AnifuUser+CoreDataProperties.swift in Sources */,
-				5DC9164B298CB5C000391DAB /* ShimmeringView.swift in Sources */,
 				C33061F82A0FB6660090EA4C /* ProfilePageHeaderCell.swift in Sources */,
 				5D7D78C5297A39180053B382 /* BrowseAnimeComposer.swift in Sources */,
 				C3117A822A59860300A8CFFC /* AnifuErrorViewController.swift in Sources */,

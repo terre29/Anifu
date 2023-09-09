@@ -76,6 +76,7 @@ class AnimeDetailPageViewController: UIViewController {
     
     let ratingLabel: UILabel = {
         let label = UILabel()
+        label.numberOfLines = 2
         return label
     }()
     
@@ -306,7 +307,7 @@ class AnimeDetailPageViewController: UIViewController {
         }
     }
     
-    var animeImage: UIImage = UIImage() {
+    var animeImage: UIImage = UIImage(systemName: "photo") ?? UIImage(){
         didSet {
             backgroundView.image = animeImage
             animeImageView.image = animeImage

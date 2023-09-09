@@ -88,25 +88,6 @@ class ProfilePageViewController: UIViewController {
         currentSnapshot = snapShot
     }
     
-    private func bindName() {
-        viewModel.userName
-            .subscribe(on: MainScheduler.instance)
-            .subscribe(onNext: { [weak self] name in
-                guard let self else { return }
-                DispatchQueue.global(qos: .background).async {
-                    self.currentSnapshot?.deleteSections([ProfileSection.header])
-                    self.currentSnapshot?.insertSections([ProfileSection.header], beforeSection: .normal)
-                    self.currentSnapshot?.appendItems([
-                        .profileHeader(.init(name: name, description: "This is you, although not always like you", profileImage: UIImage(named: "anime.you.pp") ?? UIImage()))
-                    ], toSection: .header)
-                    DispatchQueue.main.async {
-                        self.dataSource.apply(self.currentSnapshot!, animatingDifferences: false)
-                    }
-                }
-            })
-            .disposed(by: disposeBag)
-    }
-    
     private func setupLayout() {
         view.addSubview(menuTable)
         menuTable.pinToAllSideWithSafeArea(to: view)
@@ -114,7 +95,7 @@ class ProfilePageViewController: UIViewController {
     
     private func setupDataFromCoreData() {
         let data = viewModel.fetchUserData()
-        viewModel.updateName(name: data.userName)
+        viewModel.updateName(name: data.userName ?? "")
     }
     
     private func setAlert() {
@@ -134,6 +115,33 @@ class ProfilePageViewController: UIViewController {
         present(alert, animated: true)
     }
     
+    // MARK: Binding
+    private func bindName() {
+        viewModel.userName
+            .subscribe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] name in
+                guard let self else { return }
+                self.updateHeaderSnapshot(headerData: .init(userName: name, userImage: UIImage()))
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func updateHeaderSnapshot(headerData: ProfileHeaderViewModel) {
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            guard let self else { return }
+            
+            self.currentSnapshot?.deleteSections([ProfileSection.header])
+            self.currentSnapshot?.insertSections([ProfileSection.header], beforeSection: .normal)
+            self.currentSnapshot?.appendItems([
+                .profileHeader(.init(name: headerData.userName, description: "This is you, although not always like you", profileImage: UIImage(named: "anime.you.pp") ?? UIImage()))
+            ], toSection: .header)
+            DispatchQueue.main.async {
+                self.dataSource.apply(self.currentSnapshot!, animatingDifferences: false)
+            }
+        }
+    }
+    
+
     // MARK: Lifecycle
     
     override func viewDidLoad() {

@@ -123,6 +123,7 @@ class BrowseViewModel: BrowseAnimeViewControllerBusinessLogic {
             .appending("genres", value: "14")
             .appending("limit", value: "10")
             .appending("page", value: "1")
+            .appending("sfw", value: "true")
         let resource = Resource<JikanResponse>(url: url)
         getForYouAnimeList(resource: resource)
     }
@@ -131,6 +132,7 @@ class BrowseViewModel: BrowseAnimeViewControllerBusinessLogic {
         let url = URL(string: URLConstant.shared.animeTopURL)!
             .appending("page", value: "1")
             .appending("limit", value: "10")
+            .appending("sfw", value: "true")
         let resource = Resource<JikanResponse>(url: url)
         getTopAnimeList(resource: resource)
     }
@@ -139,6 +141,7 @@ class BrowseViewModel: BrowseAnimeViewControllerBusinessLogic {
         let url = URL(string: URLConstant.shared.animeUpcomingSeasonURL)!
             .appending("limit", value: "10")
             .appending("page", value: "1")
+            .appending("sfw", value: "true")
         let resource = Resource<JikanResponse>(url: url)
         getUpcomingAnimeList(resource: resource)
     }
@@ -147,6 +150,7 @@ class BrowseViewModel: BrowseAnimeViewControllerBusinessLogic {
         let url = URL(string: URLConstant.shared.animeThisSeasonURL)!
             .appending("limit", value: "10")
             .appending("page", value: "1")
+            .appending("sfw", value: "true")
         let resource = Resource<JikanResponse>(url: url)
         getThisAnimeList(resource: resource)
     }
