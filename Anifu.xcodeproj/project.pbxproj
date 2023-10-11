@@ -186,7 +186,7 @@
 				C34D523E2AA196F7003595E5 /* App */,
 				C357DAEB2AA18A4E003BBCA4 /* CoreDataModel */,
 				5D9BC463296D14FA009110C0 /* TabBarController */,
-				C34D81CC2A09F89C00FC07EA /* Page */,
+				C34D81CC2A09F89C00FC07EA /* Scene */,
 				5DA0FAE92962EF2000F3C916 /* ApiHelper */,
 				5D18735A296E736B00831F54 /* MainComposer */,
 				5D32F7BA294B0CEF002CE156 /* ViewController.swift */,
@@ -341,7 +341,7 @@
 			path = App;
 			sourceTree = "<group>";
 		};
-		C34D81CC2A09F89C00FC07EA /* Page */ = {
+		C34D81CC2A09F89C00FC07EA /* Scene */ = {
 			isa = PBXGroup;
 			children = (
 				C324F4C42A188B1100A75F85 /* AnimeDetailPage */,
@@ -349,7 +349,7 @@
 				5D39781A2963F61000E4FEA5 /* TopAnimePage */,
 				5D32F7CD294B1FA5002CE156 /* BrowseAnimePage */,
 			);
-			path = Page;
+			path = Scene;
 			sourceTree = "<group>";
 		};
 		C357DAEB2AA18A4E003BBCA4 /* CoreDataModel */ = {

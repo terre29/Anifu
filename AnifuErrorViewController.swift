@@ -46,10 +46,8 @@ public class AnifuErrorViewController: UIViewController {
         view.backgroundColor = .black
         baseStackView.addArrangedSubview(problemTitleLabel)
         baseStackView.addArrangedSubview(problemDescriptionButton)
-        baseStackView.pinToAllSides(to: view)
+        baseStackView.pinToAllSideWith16Constant(to: view)
         problemDescriptionButton.addTarget(self, action: #selector(reloadButtonTapped), for: .touchUpInside)
-        
-        
     }
     
     @objc func reloadButtonTapped() {

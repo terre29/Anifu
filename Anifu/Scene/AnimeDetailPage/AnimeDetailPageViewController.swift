@@ -100,7 +100,7 @@ class AnimeDetailPageViewController: UIViewController {
     let scoreValueLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 20, weight: .black)
-        label.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        label.setContentHuggingPriority(.defaultLow, for: .vertical)
         label.textAlignment = .center
         label.numberOfLines = 0
         return label
@@ -264,6 +264,7 @@ class AnimeDetailPageViewController: UIViewController {
         let label = UILabel()
         label.textAlignment = .center
         label.font = AnifuFontPicker.pick.superHighlightText
+        label.numberOfLines = 0
         return label
     }()
     
@@ -346,9 +347,14 @@ class AnimeDetailPageViewController: UIViewController {
         }
     }
     
-    var animeScoredBy: String = "" {
+    var animeScoredBy: Int = 0 {
         didSet {
-            scoredByLabel.text = animeScoredBy
+            if animeScoredBy == .zero {
+                scoredByLabel.isHidden = true
+            } else {
+                scoredByLabel.isHidden = false
+                scoredByLabel.text = "by \(animeScoredBy) users"
+            }
         }
     }
     
@@ -386,18 +392,22 @@ class AnimeDetailPageViewController: UIViewController {
             .subscribe(on: MainScheduler.instance)
             .subscribe(
             onNext: { [weak self] data in
-                self?.animeImage = data.animeImage
-                self?.animeSynopsis = data.sysnopsis
-                self?.animeAiredDate = AnifuDateFormatter.shared.formatDate(format: .MMyyyy).string(from: data.animeAired)
-                self?.animeScore = data.animeScore != 0 ? "\(data.animeScore)/10" : "Not yet rated"
-                self?.animeScoredBy = "by \(data.animeScoreBy) users"
-                self?.animeName = data.animeTitle
-                self?.animeType = data.animeType
-                self?.animeRating = data.animeRating
-                self?.animeRanking = data.animeRanking == "#0" ? "Not yet ranked" : data.animeRanking
+                self?.setupAnimeDetailData(animeDetailDependency: data)
             }
         )
         .disposed(by: disposeBag)
+    }
+    
+    private func setupAnimeDetailData(animeDetailDependency: AnimeDetailDependency) {
+        animeImage = animeDetailDependency.animeImage
+        animeSynopsis = animeDetailDependency.sysnopsis
+        animeAiredDate = AnifuDateFormatter.shared.formatDate(format: .MMyyyy).string(from: animeDetailDependency.animeAired)
+        animeScore = animeDetailDependency.animeScore != 0 ? "\(animeDetailDependency.animeScore)/10" : "Not yet rated"
+        animeScoredBy = animeDetailDependency.animeScoreBy
+        animeName = animeDetailDependency.animeTitle
+        animeType = animeDetailDependency.animeType
+        animeRating = animeDetailDependency.animeRating
+        animeRanking = animeDetailDependency.animeRanking == "#0" ? "Not yet ranked" : animeDetailDependency.animeRanking
     }
     
     private func bindAnimeTitles() {

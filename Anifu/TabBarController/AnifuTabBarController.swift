@@ -29,11 +29,6 @@ class AnifuTabBarController: UITabBarController, UITabBarControllerDelegate {
         delegate = self
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-       
-    }
-    
     func setupTabBarItem() {
         var viewControllers = [UIViewController]()
         viewControllerList.forEach({ viewController in
